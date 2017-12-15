@@ -8,12 +8,19 @@ print  ""
 webdata=cgi.FieldStorage()
 # this will recv all http data
 
-user_email=webdata.getvalue('e')
+user=webdata.getvalue('u')
 
 # to get email id given by user
-user_password=webdata.getvalue('p')
+password=webdata.getvalue('p')
 #
+if  user == 'root' and password == 'redhat' :
 
-print  "given user email id  is "+user_email
-print  "given password is ",user_password
+	print  "access granted for all cloud services"
+	
+else :
+	print  "Authentication failure"
+	print  "<a href='http://192.168.10.103/index.html'>"
+	print  "<img src='http://192.168.10.103/try.jpg'>"
+	print  "</a>"	
+	
 
